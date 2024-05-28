@@ -9,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     if (!validEmail(email)) {
       setError("Plese enter a valid email address");
@@ -27,7 +27,7 @@ const Login = () => {
       <Navbar />
       <div className="flex items-center justify-center mt-28">
         <div className="w-96 bg-white py-10 px-7 border rounded">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleLogin}>
             <h4 className="text-2xl mb-7">Login</h4>
             <input
               type="text"
