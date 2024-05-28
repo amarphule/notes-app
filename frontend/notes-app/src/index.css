@@ -18,6 +18,12 @@
 
 /* The components layer is for class-based styles that you want to be able to override with utilities. */
 @layer components {
+  .input-box {
+    @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 mb-4 rounded outline-none;
+  }
+  .btn-primary {
+    @apply w-full text-sm text-white bg-primary p-2 rounded my-1 hover:bg-blue-600;
+  }
 }
 
 /* The utilities layer is for small, single-purpose classes that should always take precedence over any other styles. */
