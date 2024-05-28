@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The base layer is for things like reset rules or default styles applied to plain HTML elements. */
+@layer base {
+  html {
+    font-family: "poppins", "sans-serif";
+  }
+
+  body {
+    background-color: #fdfeff;
+    overflow-x: hidden;
+  }
+}
+
+/* The components layer is for class-based styles that you want to be able to override with utilities. */
+@layer components {
+}
+
+/* The utilities layer is for small, single-purpose classes that should always take precedence over any other styles. */
+@layer utilities {
+}
