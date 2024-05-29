@@ -19,6 +19,9 @@ function Home() {
           />
         </div>
       </div>
+      <button className="w-16 h-16 bg-primary flex items-center justify-center rounded-2xl absolute right-10 bottom-10">
+        <MdAdd className="text-[34px] text-white" />
+      </button>
     </>
   );
 }
