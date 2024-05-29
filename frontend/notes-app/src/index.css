@@ -27,6 +27,9 @@
   .icon-btn {
     @apply text-slate-300 hover:text-primary text-xl cursor-pointer;
   }
+  .input-label {
+    @apply text-sm text-slate-400;
+  }
 }
 
 /* The utilities layer is for small, single-purpose classes that should always take precedence over any other styles. */
