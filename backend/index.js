@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
 const connectionToMongoDB = require("./connectionToMongoDB");
+const UserRouter = require("./routes/user");
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ connectionToMongoDB(URL)
 
 app.use(express.json());
 app.use(cors({ origin: "*" }));
+
+app.use("/", UserRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Hello");
