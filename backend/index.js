@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT;
-const URL = process.env.CONNECTION_MONGODB;
+const URL = process.env.MONGODB_URI;
 
 // MongoDB connection
 connectionToMongoDB(URL)
