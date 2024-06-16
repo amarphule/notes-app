@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const { json } = require("express");
 
 const handleCreateAccount = async (req, res) => {
   const { fullName, email, password } = req.body;
