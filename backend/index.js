@@ -18,6 +18,7 @@ connectionToMongoDB(URL)
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 
+// Route
 app.use("/", UserRouter);
 
 app.get("/", (req, res) => {
