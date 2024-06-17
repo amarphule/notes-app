@@ -34,4 +34,37 @@ const handleAddNote = async (req, res) => {
   }
 };
 
-module.exports = { handleAddNote };
+const handleEditNote = async (req, res) => {
+  const noteId = req.params.noteId;
+  const { title, content, tags, isPinned } = req.body;
+
+  if (!title && !content && !tags) {
+    res.status(400).json({
+      error: true,
+      message: "No changes provided",
+    });
+  }
+
+  try {
+    const note = await Note.findOne({ _id: noteId });
+
+    if (title) note.title = title;
+    if (content) note.content = content;
+    if (tags) note.tags = tags;
+    if (isPinned) note.isPinned = isPinned;
+
+    await note.save();
+
+    return res.json({
+      error: false,
+      note,
+      message: "Note updated successsfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: true,
+      messasge: "Internal server error.",
+    });
+  }
+};
+module.exports = { handleAddNote, handleEditNote };
