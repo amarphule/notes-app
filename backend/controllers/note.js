@@ -14,7 +14,7 @@ const handleAddNote = async (req, res) => {
   }
 
   try {
-    const note = await Note.createOne({
+    const note = await Note.create({
       title,
       content,
       tags: tags || [],
