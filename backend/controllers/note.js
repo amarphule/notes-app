@@ -87,4 +87,47 @@ const handleGetAllNotes = async (req, res) => {
 
   return;
 };
-module.exports = { handleAddNote, handleEditNote, handleGetAllNotes };
+
+const handleDeleteNote = async (req, res) => {
+  const noteId = req.params.noteId;
+  const { user } = req.user;
+  const userId = user._id;
+
+  try {
+    const note = await Note.findOne({ _id: noteId, userId });
+
+    if (!note) {
+      return res.status(404).json({
+        error: true,
+        message: "Note not found",
+      });
+    }
+
+    // Delete the note
+    const deletionResult = await Note.deleteOne({ _id: noteId, userId });
+
+    if (deletionResult.deletedCount === 0) {
+      return res.status(404).json({
+        error: true,
+        message: "Note not found", // This can be customized based on your application logic
+      });
+    }
+
+    return res.json({
+      error: false,
+      message: "Note Deleted successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: true,
+      message: "Internal server error",
+    });
+  }
+};
+
+module.exports = {
+  handleAddNote,
+  handleEditNote,
+  handleGetAllNotes,
+  handleDeleteNote,
+};
